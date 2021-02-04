@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9380b9a3-b7f6-4004-bbfb-a8a52bc9cecb" name="Default Changelist" comment="" />
+    <list default="true" id="9380b9a3-b7f6-4004-bbfb-a8a52bc9cecb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MK.txt" beforeDir="false" afterPath="$PROJECT_DIR$/MK.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +20,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1lCRdzuFrAe1D9KyibkoQUapzNH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -23,9 +32,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/main.py" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fromscratch.py" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.test">
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="T00000001_GERADOR_DE_CHAVES_DE_EHOOK" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -47,6 +58,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python">
+      <module name="T00000001_GERADOR_DE_CHAVES_DE_EHOOK" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\vinic\AppData\Local\Programs\Python\Python38-32\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fromscratch.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.Unnamed" />
+      <item itemvalue="Python.test" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -62,29 +98,49 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="60" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607100491358">
+    <state x="223" y="60" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608554448708">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="60" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1607100491358" />
-    <state x="498" y="110" key="FileChooserDialogImpl" timestamp="1607100490207">
+    <state x="223" y="60" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608554448708" />
+    <state x="498" y="110" key="FileChooserDialogImpl" timestamp="1608637825523">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="110" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1607100490207" />
-    <state width="1509" height="205" key="GridCell.Tab.0.bottom" timestamp="1608146581443">
+    <state x="498" y="110" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608637825523" />
+    <state width="1509" height="331" key="GridCell.Tab.0.bottom" timestamp="1608637839776">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1509" height="205" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608146581443" />
-    <state width="1509" height="205" key="GridCell.Tab.0.center" timestamp="1608146581443">
+    <state width="1509" height="331" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608637839776" />
+    <state width="1509" height="331" key="GridCell.Tab.0.center" timestamp="1608637839776">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1509" height="205" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608146581443" />
-    <state width="1509" height="205" key="GridCell.Tab.0.left" timestamp="1608146581443">
+    <state width="1509" height="331" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608637839776" />
+    <state width="1509" height="331" key="GridCell.Tab.0.left" timestamp="1608637839776">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1509" height="205" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608146581443" />
-    <state width="1509" height="205" key="GridCell.Tab.0.right" timestamp="1608146581443">
+    <state width="1509" height="331" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608637839776" />
+    <state width="1509" height="331" key="GridCell.Tab.0.right" timestamp="1608637839776">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1509" height="205" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608146581443" />
+    <state width="1509" height="331" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608637839776" />
+    <state width="1509" height="246" key="GridCell.Tab.1.bottom" timestamp="1608564588226">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1509" height="246" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608564588226" />
+    <state width="1509" height="246" key="GridCell.Tab.1.center" timestamp="1608564588226">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1509" height="246" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608564588226" />
+    <state width="1509" height="246" key="GridCell.Tab.1.left" timestamp="1608564588226">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1509" height="246" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608564588226" />
+    <state width="1509" height="246" key="GridCell.Tab.1.right" timestamp="1608564588226">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1509" height="246" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608564588226" />
+    <state x="161" y="0" key="SettingsEditor" timestamp="1608560649341">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="161" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1608560649341" />
   </component>
 </project>

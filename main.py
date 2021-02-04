@@ -1,18 +1,28 @@
-'''https://techtutorialsx.com/2018/04/09/python-pycrypto-using-aes-128-in-ecb-mode/'''
-"""pip install pycryptodome"""
-
 from Crypto.Cipher import AES
-from Crypto.Util.Padding import pad, unpad
-import time
+import pandas as pd
+
+my_data = {"MAC": [], "K": [], "GID": [], "DID": []}
 
 
 def filter_mac(mac):
+    '''
+
+    :param mac: string: mac address
+    :return: string: mac address without colon and uppercase
+    '''
     a = "".join(str(mac).split(":"))
     a = a.upper()
     return a
 
 
 def set_data(mac, constant):
+    '''
+    split the mac into oui and eui48l and add the constant in between
+    :param mac: string: mac address
+    :param constant: hex constant
+    :return: string: string: eui48l + constant + oui, where oui equals to the first 6 digits os the MAC address and
+            eui48l is the last 6 digits
+    '''
     mac = filter_mac(mac)
     constant = filter_mac(constant)
 
@@ -25,72 +35,92 @@ def set_data(mac, constant):
 
 
 def gid(mac):
+    '''
+    generate gid and did adress from mac
+    :param mac: string: mac address
+    :return: string: gid address
+    '''
     mac = filter_mac(mac)
     return mac[4:]
 
 
-def encrypt(key, message, BLOCK_SIZE=128):
-    cipher = AES.new(str(key).encode("utf8"), AES.MODE_ECB)
-    ciphertext = cipher.encrypt(pad(message.encode("utf8"), BLOCK_SIZE))
-    return ciphertext
-
-
-def decrypt(key, ciphertext, BLOCK_SIZE=128):
-    decipher = AES.new(str(key).encode("utf8"), AES.MODE_ECB)
-    msg_dec = decipher.decrypt(ciphertext)
-    msg_dec = (unpad(msg_dec, BLOCK_SIZE)).decode("utf8")
-    return msg_dec
-
-
-def foo():
+def input_process():
+    '''
+    take care of the reading input files and generate the key
+    :return: None
+    '''
+    # read the master key from file
     with open('MK.txt', 'r') as f:
         mk = f.read()
         f.close()
-        print("masterkey:", mk)
+        mk_bytearray = bytearray.fromhex(mk)
 
+    # read the constant from file
     with open('k.txt', 'r') as f:
         constant = f.read()
         f.close()
-        print("contant:", constant, '\n')
 
+    # read the mac address from file
     with open('input.txt', 'r') as f:
         for line in f:
-            print("MAC:", line.rstrip())
+            # filter the unnecessary characters of the MAC
+            mac_adress = filter_mac(line.rstrip())
+
+            # save MAC, GID and DID to the dictionary
+            my_data['MAC'].append(mac_adress)
+            my_data['GID'].append(gid(mac_adress))
+            my_data['DID'].append(gid(mac_adress))
+
+            # set the mac and constant together, transform it into a byte array
             data = set_data(line, constant)
-            print("data in:", data)
-            encryptedmsg = encrypt(mk, data).hex()
-            print(encryptedmsg, '\n')
+            data_bytearray = bytearray.fromhex(data)
 
-    '''a = 'ab:cd:ef:01:23:45'
-    k = '5b:32:56:4b:4f:4f:48:2d:45:5d'
-    print(set_data(a,k))'''
+            # create the cipher object and encrypt the data, generating the product key
+            cipher = AES.new(mk_bytearray, AES.MODE_ECB)
+            product_key = cipher.encrypt(data_bytearray)
 
-
-def main():
-    with open('MK.txt', 'r') as f:
-        mk = int(f.read(),16)
+            # save the product key to the dictionary
+            my_data['K'].append(product_key.hex().upper())
         f.close()
-        print("masterkey:", mk, type(mk))
-
-    with open('k.txt', 'r') as f:
-        constant = f.read()
-        f.close()
-        print("contant:", constant,type(constant))
-
-    with open('input.txt','r') as f:
-        line = f.readline().rstrip()
-        print("MAC:",line)
-        data = set_data(line, constant)
-        print('data:', data, 'type:', type(data),'\n')
-        hexdata = int(data,16)
-        print('hexdata:', hex(hexdata), 'type:', type(hexdata),'\n')
-        '''hexdata = hex(hexdata)
-        print('hexdata:', hexdata,'type:', type(hexdata),'\n')'''
-
-    encrypt(mk,hexdata)
 
 
+def output_process():
+    '''
+    take care of writing the output files
+    :return: None
+    '''
+    # create pandas data frame from the dictionary
+    df = pd.DataFrame.from_dict(my_data)
+    df.style.set_properties(align='right')
+
+    # create data frames based on specific items
+    df_k = df.to_string(index=False, header=False, columns=['K'])
+    df_gid = df.to_string(index=False, header=False, columns=['GID'])
+    df_did = df.to_string(index=False, header=False, columns=['DID'])
+    df_mac_k = df.to_string(index=False, header=False, columns=['MAC', 'K'])
+    df_mac_gid = df.to_string(index=False, header=False, columns=['MAC', 'GID'])
+    df_mac_did = df.to_string(index=False, header=False, columns=['MAC', 'DID'])
+    df_mac_k_gid_did = df.to_string(index=False, header=False, columns=['MAC', 'K', 'GID', 'DID'])
+
+    # create a list containing the data frames and another containing its names
+    df_list = [df_k, df_gid, df_did, df_mac_k, df_mac_gid, df_mac_did, df_mac_k_gid_did]
+    df_namelist = ['df_k', 'df_gid', 'df_did', 'df_mac_k', 'df_mac_gid', 'df_mac_did', 'df_mac_k_gid_did']
+
+    # create a file based on the data frame name and write the data in it.
+    j = 0
+    for i in df_namelist:
+        with open(i + '.txt', 'a') as f:
+            for line in df_list[j]:
+                f.write(line)
+            f.write('\n')
+            f.close()
+        j += 1
 
 
-if __name__ == "__main__":
-    main()
+def run():
+    input_process()
+    output_process()
+
+
+if __name__ == '__main__':
+    run()
