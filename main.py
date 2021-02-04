@@ -6,7 +6,6 @@ my_data = {"MAC": [], "K": [], "GID": [], "DID": []}
 
 def filter_mac(mac):
     '''
-
     :param mac: string: mac address
     :return: string: mac address without colon and uppercase
     '''
