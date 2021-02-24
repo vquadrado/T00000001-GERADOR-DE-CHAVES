@@ -1,1 +1,0 @@
-"insira hex de 32 digitos"
